@@ -1,9 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.0;net462</TargetFrameworks>
-
-    <SatelliteAssemblyTargetFramework>netstandard2.0</SatelliteAssemblyTargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Package Settings">
