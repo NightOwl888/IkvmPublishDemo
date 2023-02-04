@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;netstandard2.0;net462</TargetFrameworks>
+
+    <SatelliteAssemblyTargetFramework>netstandard2.0</SatelliteAssemblyTargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet Package Settings">
+    <AssemblyTitle>ICU4N</AssemblyTitle>
+    <Description>ICU (International Components for Unicode) is a set of libraries providing Unicode and Globalization support for software applications. It provides Text-boundary analysis (RuleBasedBreakIterator) as well as easy access to all of the many Unicode character properties, Unicode Normalization, Case Folding and other fundamental operations as specified by the Unicode Standard. ICU4N is a .NET port of ICU4J.</Description>
+  </PropertyGroup>
+  
+   <ItemGroup>
+    <InternalsVisibleTo Include="ICU4N.TestFramework" />
+    <InternalsVisibleTo Include="ICU4N.Tests" />
+    <InternalsVisibleTo Include="ICU4N.Tests.Collation" />
+    <InternalsVisibleTo Include="ICU4N.Tests.Transliterator" />
+  </ItemGroup>
+
+  <!-- This is the bit that fails in https://github.com/ikvm-revived/ikvm-maven/issues/29 -->
+  <ItemGroup Label="Specifies generated sattelite assemblies should be copied to the output folder (and dependent projects as well)">
+    <None Include="$(ICU4NSatelliteAssemblyOutputDir)/**/*.resources.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+  </ItemGroup>
+
+</Project>

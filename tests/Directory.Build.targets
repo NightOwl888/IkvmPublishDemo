@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
+  <Import Project="$(SolutionDir)/.build/TestReferences.Common.targets" />
+
+  <Target Name="PrintSolutionDir" AfterTargets="Build">
+    <Message Importance="high" Text="SolutionDir: $(SolutionDir)" />
+  </Target>
+</Project>

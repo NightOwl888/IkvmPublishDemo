@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFA9C126-B7DA-4BED-BED6-70BE542AE17C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{EDD9B858-6094-4DD5-9569-4DEF54B77FB8}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Directory.Build.props = tests\Directory.Build.props
+		tests\Directory.Build.targets = tests\Directory.Build.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICU4N.TestFramework", "src\ICU4N.TestFramework\ICU4N.TestFramework.csproj", "{44E0F31A-BE20-4F31-AA80-609C06EBDC86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICU4N", "src\ICU4N\ICU4N.csproj", "{206408AF-CA1E-4B81-B9FF-FD812C061517}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICU4N.Tests.Collation", "tests\ICU4N.Tests.Collation\ICU4N.Tests.Collation.csproj", "{2F14FC25-FB89-46B0-9509-C881B4D9642D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICU4N.Tests.Transliterator", "tests\ICU4N.Tests.Transliterator\ICU4N.Tests.Transliterator.csproj", "{0305799A-6270-4F1E-9BDC-8618645BA27A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICU4N.Tests", "tests\ICU4N.Tests\ICU4N.Tests.csproj", "{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{85956E3F-CBDD-4F27-9714-94330DBFD624}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		.build\dependencies.props = .build\dependencies.props
+		.build\nuget.props = .build\nuget.props
+		.build\runbuild.ps1 = .build\runbuild.ps1
+		.build\TestReferences.Common.targets = .build\TestReferences.Common.targets
+		.build\TestTargetFramework.props = .build\TestTargetFramework.props
+		version.json = version.json
+		.build\version.ps1 = .build\version.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-templates", "azure-templates", "{DC61890F-44CC-45CC-9C9D-747FE4176166}"
+	ProjectSection(SolutionItems) = preProject
+		.build\azure-templates\build-pack-and-publish-libraries.yml = .build\azure-templates\build-pack-and-publish-libraries.yml
+		.build\azure-templates\gitversioning-increment-and-persist-versions.yml = .build\azure-templates\gitversioning-increment-and-persist-versions.yml
+		.build\azure-templates\install-dotnet-sdk.yml = .build\azure-templates\install-dotnet-sdk.yml
+		.build\azure-templates\publish-nuget-packages.yml = .build\azure-templates\publish-nuget-packages.yml
+		.build\azure-templates\publish-test-results-for-target-frameworks.yml = .build\azure-templates\publish-test-results-for-target-frameworks.yml
+		.build\azure-templates\publish-test-results-for-test-projects.yml = .build\azure-templates\publish-test-results-for-test-projects.yml
+		.build\azure-templates\publish-test-results.yml = .build\azure-templates\publish-test-results.yml
+		.build\azure-templates\run-tests-on-os.yml = .build\azure-templates\run-tests-on-os.yml
+		.build\azure-templates\show-all-environment-variables.yml = .build\azure-templates\show-all-environment-variables.yml
+		.build\azure-templates\show-all-files.yml = .build\azure-templates\show-all-files.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{016CCF9F-3518-48F4-89DC-DE05C1793C7E}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44E0F31A-BE20-4F31-AA80-609C06EBDC86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E0F31A-BE20-4F31-AA80-609C06EBDC86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E0F31A-BE20-4F31-AA80-609C06EBDC86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E0F31A-BE20-4F31-AA80-609C06EBDC86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{206408AF-CA1E-4B81-B9FF-FD812C061517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{206408AF-CA1E-4B81-B9FF-FD812C061517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{206408AF-CA1E-4B81-B9FF-FD812C061517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{206408AF-CA1E-4B81-B9FF-FD812C061517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F14FC25-FB89-46B0-9509-C881B4D9642D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F14FC25-FB89-46B0-9509-C881B4D9642D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F14FC25-FB89-46B0-9509-C881B4D9642D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F14FC25-FB89-46B0-9509-C881B4D9642D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0305799A-6270-4F1E-9BDC-8618645BA27A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0305799A-6270-4F1E-9BDC-8618645BA27A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0305799A-6270-4F1E-9BDC-8618645BA27A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0305799A-6270-4F1E-9BDC-8618645BA27A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{44E0F31A-BE20-4F31-AA80-609C06EBDC86} = {AFA9C126-B7DA-4BED-BED6-70BE542AE17C}
+		{206408AF-CA1E-4B81-B9FF-FD812C061517} = {AFA9C126-B7DA-4BED-BED6-70BE542AE17C}
+		{2F14FC25-FB89-46B0-9509-C881B4D9642D} = {EDD9B858-6094-4DD5-9569-4DEF54B77FB8}
+		{0305799A-6270-4F1E-9BDC-8618645BA27A} = {EDD9B858-6094-4DD5-9569-4DEF54B77FB8}
+		{C0D2B59E-EC49-474F-9720-6B7C7D6EEB5B} = {EDD9B858-6094-4DD5-9569-4DEF54B77FB8}
+		{DC61890F-44CC-45CC-9C9D-747FE4176166} = {85956E3F-CBDD-4F27-9714-94330DBFD624}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {477E10DB-FB58-4A39-B757-97FC79160F99}
+	EndGlobalSection
+EndGlobal

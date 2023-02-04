@@ -1,0 +1,66 @@
+<Project>
+
+  <PropertyGroup>
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+    <LangVersion>8.0</LangVersion>
+    <GitHubOrganization>NightOwl888</GitHubOrganization>
+    <GitHubProject>ICU4N</GitHubProject>
+    <ArtifactsDir>$(SolutionDir)_artifacts</ArtifactsDir>
+    <CLSCompliant>true</CLSCompliant>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Assembly Signing">
+    <AssemblyOriginatorKeyFile>$(RepositoryRoot).build/key.snk</AssemblyOriginatorKeyFile>
+    <PublicKey>0024000004800000940000000602000000240000525341310004000001000100d12801609bb37c42c9aa2543be20a461d42954f501628392a51bd57254b0a7c11d7e5f5d8155b6cb732c1c00786acc288202b0940f237a4a97948a37b6713713612d17cac30ff9bc10782334a72dce2326c768685e7ce2ab5335d61c22e6224a7beed58ab3cdba23b48d7ebbbe5c94bc90586e8eae358e1c915d082f36f961e2</PublicKey>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Assembly Publishing">
+    <IsPublishable>false</IsPublishable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet Package Defaults">
+    <IsPackable>false</IsPackable>
+    <IncludeSymbols>true</IncludeSymbols>
+    <!-- This is the new symbols format (the only one currently supported at NuGet.org) -->
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageTags>$(PackageTags);icu;icu4j;international;unicode;localization;globalization;locale;plural;breakiterator;bidi;alphabetic index;collation;collator;string search;rule-based;idna;transliteration;transliterate;unicodeset;normalizer;normalizer2;normalization;case folding;characters;text analysis;utf16;utf32;utf8;uts46</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <ICUDataEndian Label="b for big endian, l for little endian">b</ICUDataEndian>
+    <ICUDataPrefix>icudt</ICUDataPrefix>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Copyright Info">
+    <Company>$(GitHubProject)</Company>
+    <CurrentYear Condition=" '$(CurrentYear)' == '' ">$([System.DateTime]::UtcNow.Year.ToString())</CurrentYear>
+    <BeginCopyrightYear>2019</BeginCopyrightYear>
+    <CopyrightYearRange>$(BeginCopyrightYear) - $(CurrentYear)</CopyrightYearRange>
+    <CopyrightYearRange Condition=" '$(BeginCopyrightYear)' == '$(CurrentYear)' ">$(CurrentYear)</CopyrightYearRange>
+    <Copyright>Copyright © $(CopyrightYearRange) $(Company)</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Label="SourceLink Settings: https://github.com/dotnet/sourcelink/blob/main/README.md">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(BUILD_REPOSITORY_PROVIDER)' == 'GitHub' Or '$(BUILD_REPOSITORY_PROVIDER)' == 'TfsGit' " Label="Deterministic builds: https://github.com/clairernovotny/DeterministicBuilds#readme">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Label=".NET Framework SDK Fixup">
+    <TargetFrameworkSDKToolsDirectory Condition="Exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\')">$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\</TargetFrameworkSDKToolsDirectory>
+    <TargetFrameworkSDKToolsDirectory Condition="Exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.2 Tools\')">$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.2 Tools\</TargetFrameworkSDKToolsDirectory>
+    <TargetFrameworkSDKToolsDirectory Condition="Exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools\')">$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools\</TargetFrameworkSDKToolsDirectory>
+    <TargetFrameworkSDKToolsDirectory Condition="Exists('$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\')">$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\</TargetFrameworkSDKToolsDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Satellite Assemblies">
+    <ICU4NSatelliteAssemblyOutputDir>$(ArtifactsDir)/SatelliteAssemblies/$(Configuration)</ICU4NSatelliteAssemblyOutputDir>
+    <!-- Without this we get error MSB4057: The target "GetTargetPath" does not exist in the project.
+         See: https://github.com/dotnet/msbuild/issues/4303#issuecomment-482345617 -->
+    <AddSyntheticProjectReferencesForSolutionDependencies>false</AddSyntheticProjectReferencesForSolutionDependencies>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,26 @@
+﻿<Project>
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+  <PropertyGroup>
+    <!-- According to the docs (https://docs.microsoft.com/en-us/cpp/build/reference/common-macros-for-build-commands-and-properties?view=vs-2019), the 
+      SolutionDir is only available when running in the IDE, so we patch to ensure it also works when using dotnet.exe -->
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(MSBuildThisFileDirectory)../</SolutionDir>
+  </PropertyGroup>
+
+  <Import Project="$(SolutionDir)/.build/TestTargetFramework.props" />
+
+  <PropertyGroup>
+    <CLSCompliant>false</CLSCompliant>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Warnings to be Disabled in Test Projects">
+    <!-- We purposely test on EoL frameworks for testing netstandard2.0, but we want to keep this warning in production code. -->
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <NoWarn>$(NoWarn);168;612;618;672;809</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Assembly Publishing">
+    <IsPublishable>true</IsPublishable>
+  </PropertyGroup>
+  
+</Project>
