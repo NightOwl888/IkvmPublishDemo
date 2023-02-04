@@ -6,4 +6,9 @@
     <ProjectReference Include="..\..\src\ICU4N\ICU4N.csproj" />
   </ItemGroup>
 
+  <ItemGroup Label="IKVM Dependencies">
+    <PackageReference Include="IKVM.Maven.Sdk" Version="$(IKVMMavenSdkPackageReferenceVersion)" />
+    <MavenReference Include="com.ibm.icu:icu4j" Version="$(ICU4JMavenPackageReferenceVersion)" />
+  </ItemGroup>
+
 </Project>
