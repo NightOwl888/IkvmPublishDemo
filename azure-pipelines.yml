@@ -211,7 +211,7 @@ stages:
 
   - job: Test_net462_x64
     condition: and(succeeded(), ne(variables['RunTests'], 'false'))
-    displayName: 'Test net461,x64 on Windows'
+    displayName: 'Test net462,x64 on Windows'
     pool:
       vmImage: 'windows-2019'
     steps:
@@ -226,7 +226,7 @@ stages:
 
   - job: Test_net462_x86 # Only run if explicitly enabled with RunX86Tests
     condition: and(succeeded(), ne(variables['RunTests'], 'false'), eq(variables['RunX86Tests'], 'true'))
-    displayName: 'Test net461,x86 on Windows'
+    displayName: 'Test net462,x86 on Windows'
     pool:
       vmImage: 'windows-2019'
     steps:
