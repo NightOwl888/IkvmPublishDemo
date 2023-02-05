@@ -71,7 +71,7 @@ if ([version]$releaseVersion -lt ([version]$minimumSdkVersion)) {
 
 $repoRoot = Split-Path $PSScriptRoot -Parent # Assumes this file is in the /.build directory
 
-#Write-Host "Repo Root: $repoRoot"
+Write-Host "Repo Root: $repoRoot"
 
 & dotnet tool install nbgv --tool-path $repoRoot --version $nbgvToolVersion | Out-Null
 try {
