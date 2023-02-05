@@ -51,6 +51,9 @@ stages:
       vmImage: 'windows-2019'
 
     steps:
+    - checkout: self
+      fetchDepth: 0
+
     - pwsh: |
         $configuration = if ($env:BUILDCONFIGURATION) { $env:BUILDCONFIGURATION } else { "Release" }
         Write-Host "##vso[task.setvariable variable=BuildConfiguration;]$configuration"
