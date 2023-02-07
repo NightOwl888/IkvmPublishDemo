@@ -17,8 +17,23 @@
   </ItemGroup>
 
   <!-- This is the bit that fails in https://github.com/ikvm-revived/ikvm-maven/issues/29 -->
-  <ItemGroup Label="Specifies generated sattelite assemblies should be copied to the output folder (and dependent projects as well)">
+  <!--<ItemGroup Label="Specifies generated sattelite assemblies should be copied to the output folder (and dependent projects as well)">
+    <None Include="$(ICU4NSatelliteAssemblyOutputDir)/**/*.resources.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+  </ItemGroup>-->
+  <ItemGroup Label="Specifies generated sattelite assemblies should be copied to the output folder (and dependent projects as well)"
+             Condition=" '$(_IsPublishing)' != 'true' ">
     <None Include="$(ICU4NSatelliteAssemblyOutputDir)/**/*.resources.dll" CopyToOutputDirectory="PreserveNewest" Visible="false" />
   </ItemGroup>
+
+  <!--<Target Name="PublishSatelliteAssemblies" AfterTargets="Publish" Condition=" '$(_IsPublishing)' == 'true' ">
+    <ItemGroup>
+      <SatelliteAssemblies Include="$(ICU4NSatelliteAssemblyOutputDir)/**/*.resources.dll"/>
+    </ItemGroup>
+    <Message Importance="high" Text="Publishing Satellite Assemblies for $(TargetFramework)..."/>
+
+    <Copy SourceFiles="@(SatelliteAssemblies)"
+          DestinationFolder="$(PublishDir)"
+          SkipUnchangedFiles="true" />
+  </Target>-->
 
 </Project>
