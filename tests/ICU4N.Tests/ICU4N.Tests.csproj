@@ -8,6 +8,7 @@
 
   <ItemGroup Label="IKVM Dependencies">
     <PackageReference Include="IKVM.Maven.Sdk" Version="$(IKVMMavenSdkPackageReferenceVersion)" />
+    <PackageReference Include="IKVM" Version="$(IKVMPackageReferenceVersion)" />
     <MavenReference Include="com.ibm.icu:icu4j" Version="$(ICU4JMavenPackageReferenceVersion)" />
   </ItemGroup>
 
