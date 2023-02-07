@@ -1,5 +1,5 @@
-﻿using java.lang;
-using java.text;
+﻿//using java.lang;
+//using java.text;
 using NUnit.Framework;
 using System;
 using System.Globalization;
@@ -38,14 +38,14 @@ namespace ICU4N.Tests
         //}
 
 
-        [Test]
-        public void TestCoverage()
-        {
-            java.util.Currency usd = java.util.Currency.getInstance("USD");
-            Assert.AreEqual(
-                    "$",
-                    usd.getSymbol(),
-                    "USD.getSymbol()");
-        }
+        //[Test]
+        //public void TestCoverage()
+        //{
+        //    java.util.Currency usd = java.util.Currency.getInstance("USD");
+        //    Assert.AreEqual(
+        //            "$",
+        //            usd.getSymbol(),
+        //            "USD.getSymbol()");
+        //}
     }
 }
